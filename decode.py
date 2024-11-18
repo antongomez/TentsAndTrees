@@ -9,7 +9,7 @@ def get_dim(elements):
                 return int(match.group(1))
     return None
 
-def get_solution_matrix(elements):
+def get_solution_matrix(elements, dim=6):
     matrix = [["." for _ in range(dim)] for _ in range(dim)]
     
     for element in elements:
@@ -17,6 +17,9 @@ def get_solution_matrix(elements):
         if match:
             x = int(match.group(1))-1
             y = int(match.group(2))-1
+            if x >= dim or y >= dim or x < 0 or y < 0:
+                print(f"Warning: tree({x+1},{y+1}) out of bounds. Ignoring it.")
+                continue
             matrix[x][y] = "t"
             continue
         
@@ -24,6 +27,9 @@ def get_solution_matrix(elements):
         if match:
             x = int(match.group(1))-1
             y = int(match.group(2))-1
+            if x >= dim or y >= dim or x < 0 or y < 0:
+                print(f"Warning: tent({x+1},{y+1}) out of bounds. Ignoring it.")
+                continue
             matrix[x][y] = "x"
             continue
     
@@ -47,7 +53,7 @@ if __name__ == "__main__":
         print("No dim found.") 
         sys.exit(1)
     
-    matrix = get_solution_matrix(elements)
+    matrix = get_solution_matrix(elements, dim=dim)
     
     # Print the matrix
     print("\n".join(["".join(row) for row in matrix]))

@@ -14,16 +14,16 @@ tree(3, 1). tree(3, 6).
 tree(5, 5).
 tree(6, 1). tree(6, 5).
 
+% Define the adjacent cells
+adj(0, 1). adj(1, 0). adj(0, -1). adj(-1, 0).
+
 % Generate all the posible tents within the board next to a tree
 tent(X1, Y1) :- 
     tree(X, Y),
     X1 = X + DX, 
     Y1 = Y + DY,
-    DX = -1..1,
-    DY = -1..1,
-    (DX = 0; DY = 0), % Permite solo movimientos horizontales o verticales
-    row(X1), col(Y1),
-    not tree(X1, Y1).
+    adj(DX, DY),
+    row(X1), col(Y1).
 
 
 #show dim/1.

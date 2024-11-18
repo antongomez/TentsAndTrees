@@ -1,4 +1,9 @@
+# Ignore pdf and zip files
 *.pdf
 *.zip
 
+# Ignore output files
+*.out
+
+# Ignore elipitav files
 solution_example.txt
