@@ -20,8 +20,6 @@ cell(X, Y) :- row(X,_), col(Y,_).
 :- col(Y, N), not N { tent(X, Y) : cell(X, Y) } N.
 
 
-
-
 #show dim/1.
 #show tree/2.
 #show tent/2.
