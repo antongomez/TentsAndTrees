@@ -29,7 +29,7 @@ tree(23,7). tree(23,14).
 tree(24,2). tree(24,6). tree(24,8). tree(24,11). 
 
 % Columns
-col(0,3). col(1,3). col(2,0). col(3,1). col(4,3). col(5,2). col(6,1). col(7,2). col(8,5). col(9,1). col(10,4). col(11,2). col(12,3). col(13,2). col(14,3). col(15,1). col(16,4). col(17,3). col(18,0). col(19,2). col(20,2). col(21,1). col(22,1). col(23,1). col(24,0). col(25,). 
+col(0,3). col(1,3). col(2,0). col(3,1). col(4,3). col(5,2). col(6,1). col(7,2). col(8,5). col(9,1). col(10,4). col(11,2). col(12,3). col(13,2). col(14,3). col(15,1). col(16,4). col(17,3). col(18,0). col(19,2). col(20,2). col(21,1). col(22,1). col(23,1). col(24,0). 
 
 % Rows
-row(0,5). row(1,0). row(2,2). row(3,3). row(4,2). row(5,1). row(6,4). row(7,0). row(8,1). row(9,2). row(10,2). row(11,0). row(12,1). row(13,2). row(14,1). row(15,3). row(16,3). row(17,2). row(18,1). row(19,2). row(20,2). row(21,2). row(22,4). row(23,0). row(24,5). row(25,). 
+row(0,5). row(1,0). row(2,2). row(3,3). row(4,2). row(5,1). row(6,4). row(7,0). row(8,1). row(9,2). row(10,2). row(11,0). row(12,1). row(13,2). row(14,1). row(15,3). row(16,3). row(17,2). row(18,1). row(19,2). row(20,2). row(21,2). row(22,4). row(23,0). row(24,5). 

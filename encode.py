@@ -33,9 +33,9 @@ def process_file(file):
                 trees.append((row_index, col_index))
 
     # Process the next two rows to finds tents in each column and row
-    for col_index, n_tents in enumerate(lines[dim].split(" ")):
+    for col_index, n_tents in enumerate(lines[dim].split(" ")[:dim]):
         cols.append((col_index, n_tents))
-    for row_index, n_tents in enumerate(lines[dim + 1].split(" ")):
+    for row_index, n_tents in enumerate(lines[dim + 1].split(" ")[:dim]):
         rows.append((row_index, n_tents))
 
     # Write the facts to a file
