@@ -11,6 +11,16 @@ tent(X, Y) :- belongs_to(X, Y, _, _).
 % Tents cannot be adjacent to each other (including diagonals)
 :- tent(X1, Y1), tent(X2, Y2), DX=-1..1, DY=-1..1, X2 = X1 + DX, Y2 = Y1 + DY, (DX, DY) != (0, 0).
 
+% Generate all the possible cells
+cell(X, Y) :- row(X,_), col(Y,_).
+% A cell can containt a tent or be empty
+{ tent(X, Y) : cell(X, Y) }.
+% Introduce row and column restrictions
+:- row(X, N), not N { tent(X, Y) : cell(X, Y) } N.
+:- col(Y, N), not N { tent(X, Y) : cell(X, Y) } N.
+
+
+
 
 #show dim/1.
 #show tree/2.
