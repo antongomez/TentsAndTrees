@@ -1,7 +1,7 @@
-import sys
 import re
 import clingo
 import argparse
+import os
 
 
 def get_dim(elements):
@@ -63,28 +63,26 @@ def solve_with_clingo(tents_file, domain_file, solutions=0):
     # Check if a solution was found
     if num_solutions == 0:
         print("No solution found.")
-        return
+        exit(1)
 
-    # Check if more than one solution was found. This must be an error in the final version
+    # Check if more than one solution was found.
     if num_solutions > 1:
-        print(f"Warning: {num_solutions} solutions found.")
+        print(f"Error: {num_solutions} solutions found. Showing only the first one.")
 
-    # In the final version we don't need to make a loop here as we should have only one solution
-    for i, solution in enumerate(solutions, start=1):
-        if num_solutions > 1:
-            print(f"Solution {i}")
-        # Get the elements of the solution
-        elements = [str(atom) for atom in solution]
-        dim = get_dim(elements)
+    # Get the elements of the solution
+    elements = [str(atom) for atom in solutions[0]]
+    dim = get_dim(elements)
 
-        if dim is None:
-            print("No dim found in solution.")
-            return
+    if dim is None:
+        print("No dim found in solution.")
+        exit(1)
 
-        matrix = get_solution_matrix(elements, dim=dim)
+    matrix = get_solution_matrix(elements, dim=dim)
 
-        # Print the solution
-        print("\n".join(["".join(row) for row in matrix]))
+    # Print the solution
+    print("\n".join(["".join(row) for row in matrix]))
+    
+    return matrix
 
 
 if __name__ == "__main__":
@@ -92,10 +90,17 @@ if __name__ == "__main__":
     parser.add_argument("tents_file", help="File that contains the tents puzzle (tents.lp).")
     parser.add_argument("domain_file", help="File that contains the domain of the tents puzzle (domain.lp).")
     parser.add_argument("--solutions", type=int, help="Number of solutions to find.")
+    parser.add_argument("--output", help="Output file to save the solution.")
 
     args = parser.parse_args()
     tents_file = args.tents_file
     domain_file = args.domain_file
     solutions = args.solutions if args.solutions else 0
+    output = args.output if args.output else None
 
-    solve_with_clingo(tents_file, domain_file, solutions=solutions)
+    matrix = solve_with_clingo(tents_file, domain_file, solutions=solutions) 
+    if output:
+        output = os.path.join("outputs", output)
+        with open(output, "w") as f:
+            f.write("\n".join(["".join(row) for row in matrix]) + "\n")
+            print(f"Solution saved in {output}")
