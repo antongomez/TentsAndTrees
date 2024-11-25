@@ -1,3 +1,9 @@
+<!--
+SPDX-FileCopyrightText: 2024 Eliseo Pita Vilariño and Antón Gómez López
+
+SPDX-License-Identifier: MIT
+-->
+
 # Tent and Trees
 
 This academic project is part of the first assignment of the subject _Reasoning and Planning_ of the Master's Degree in Artificial Intelligence at the University of Santiago de Compostela.
@@ -53,10 +59,10 @@ t...t.
 2 1 0 2 0 2
 ```
 
-The dots represent empty cells, the `t` represent trees, and the numbers at the end of the file represent the number of tents to be placed in each column and row, respectively. The script can be executed as follows:
+The dots represent empty cells, the `t` represent trees, and the numbers at the end of the file represent the number of tents to be placed in each column and row, respectively. The script can be executed as follows to encode all the examples in the `examples/` folder:
 
 ```bash
-python encode.py examples/dom01.txt
+python encode.py dom0[0-8].txt
 ```
 
 This will generate a file with the same name as the input file but with the extension `.lp`. This file can be used as input for the ASP program. The ASP program can be executed as follows:

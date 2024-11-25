@@ -1,3 +1,9 @@
+# SPDX-FileCopyrightText: 2024 Eliseo Pita Vilariño and Antón Gómez López
+# SPDX-FileContributor: Antón Gómez López
+# SPDX-FileContributor: Eliseo Pita Vilariño
+#
+# SPDX-License-Identifier: MIT
+
 import pygame
 import clingo
 import sys

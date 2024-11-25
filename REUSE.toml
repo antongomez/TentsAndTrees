@@ -1,0 +1,16 @@
+version = 1
+SPDX-PackageName = "TentsAndTrees"
+SPDX-PackageSupplier = "Antón Gómez López antongomez03@gmail.com"
+SPDX-PackageDownloadLocation = "https://github.com/antongomez/TentsAndTrees"
+
+[[annotations]]
+path = "\\**"
+precedence = "aggregate"
+SPDX-FileCopyrightText = "2024 Eliseo Pita Vilariño and Antón Gómez López"
+SPDX-License-Identifier = "MIT"
+
+[[annotations]]
+path = "pics/\\**"
+precedence = "aggregate"
+SPDX-FileCopyrightText = "2024 Eliseo Pita Vilariño and Antón Gómez López"
+SPDX-License-Identifier = "CC-BY-4.0"

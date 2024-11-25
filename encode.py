@@ -1,3 +1,9 @@
+# SPDX-FileCopyrightText: 2024 Eliseo Pita Vilariño and Antón Gómez López
+# SPDX-FileContributor: Antón Gómez López
+# SPDX-FileContributor: Eliseo Pita Vilariño
+#
+# SPDX-License-Identifier: MIT
+
 import sys
 import re
 import os
@@ -17,6 +23,9 @@ def process_file(file):
     with open(file, "r") as f:
         data = f.read()
     lines = data.split("\n")
+
+    # Remove lines with comments and empty lines
+    lines = [line for line in lines if not line.startswith("#") and line]
 
     # Get the dimension of the matrix
     dim = len(list(lines[0]))
@@ -41,6 +50,12 @@ def process_file(file):
     # Write the facts to a file
     lp_filename = os.path.splitext(file)[0] + ".lp"
     with open(lp_filename, "w") as lp_file:
+        # Write license header
+        lp_file.write(
+            "% SPDX-FileCopyrightText: 2024 Eliseo Pita Vilariño and Antón Gómez López\n"
+            + "% SPDX-FileContributor: Antón Gómez López\n% SPDX-FileContributor: Eliseo Pita Vilariño\n\n"
+            + "% SPDX-License-Identifier: MIT\n\n"
+        )
 
         # Write the dim fact
         lp_file.write("% Dimension\n")

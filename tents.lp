@@ -1,3 +1,9 @@
+% SPDX-FileCopyrightText: 2024 Eliseo Pita Vilariño and Antón Gómez López
+% SPDX-FileContributor: Antón Gómez López
+% SPDX-FileContributor: Eliseo Pita Vilariño
+%
+% SPDX-License-Identifier: MIT
+
 % Define the adjacent cells
 adj(0, 1). adj(1, 0). adj(0, -1). adj(-1, 0).
 
