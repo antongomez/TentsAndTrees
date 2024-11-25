@@ -38,7 +38,7 @@ The objective is build a ASP program that, given an input puzzle, finds a soluti
 
 ## Requirements
 
-To run the ASP program, you need to install [clingo](https://potassco.org/clingo/). The only Python dependency is [pygame](https://www.pygame.org/), which can be installed with the following command:
+To run the ASP program, it is necessary to install [clingo](https://potassco.org/clingo/). The only Python dependency is [pygame](https://www.pygame.org/), which can be installed with the following command:
 
 ```bash
 pip install pygame
@@ -65,7 +65,7 @@ The dots represent empty cells, the `t` represent trees, and the numbers at the 
 python encode.py dom0[0-8].txt
 ```
 
-This will generate a file with the same name as the input file but with the extension `.lp`. This file can be used as input for the ASP program. The ASP program can be executed as follows:
+The script takes as input a regular expression that matches the files in the `examples/` folder. and generates a file for each example in the `examples/` folder with the same name and the extension `.lp`. The generated files contain the dimensions of the puzzle, the position of the trees, and the number of tents to be placed in each row and column especified as facts. To run the ASP program to solve one of the examples, it can be used the following command:
 
 ```bash
 clingo 0 tents.lp examples/dom01.lp
@@ -80,13 +80,13 @@ python decode.py tents.lp examples/dom01.lp
 To compare the solution with the original puzzle, you can use the `diff` command:
 
 ```bash
-python decode.py tents.lp examples/dom01.lp | diff -sy solutions/sol01.txt -
+python decode.py tents.lp examples/dom01.lp | diff -s solutions/sol01.txt -
 ```
 
 Finally, the `display.py` script can be used to graphically represent the solution. The script can be executed as follows:
 
 ```bash
-python display.py tents.lp domain.lp drawtents.lp
+python display.py tents.lp examples/dom01.lp drawtents.lp
 ```
 
 This will open a window with the graphical representation of the solution.
